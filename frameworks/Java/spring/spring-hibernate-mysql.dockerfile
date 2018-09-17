@@ -6,5 +6,5 @@ RUN mvn package -q -P hibernate_mysql
 
 FROM openjdk:10-jre-slim
 WORKDIR /spring
-COPY --from=maven /spring/target/teb-spring-hibernate-mysql.jar app.jar
+COPY --from=maven /spring/target/hello-spring-1.0-SNAPSHOT.jar app.jar
 CMD ["java", "-server", "-Dspring.profiles.active=hibernate-mysql", "-XX:+UseNUMA", "-XX:+UseParallelGC", "-jar", "app.jar"]
